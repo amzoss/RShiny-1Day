@@ -1,0 +1,298 @@
+---
+title: "Practicing Labels and Scales"
+author: "Angela Zoss"
+date: "3/5/2023"
+output: html_document
+---
+
+## Load packages
+
+```{r}
+
+library(tidyverse)
+library(colorspace)
+library(here)
+here::i_am("Day 1/2_labs_scales_final.Rmd")
+
+```
+
+## Load data
+
+```{r}
+
+# load using included script file
+
+source(here("data", "inclusiveness_index", "load_inclusiveness_index.R"))
+
+```
+
+
+```{r}
+
+color_scatter <-  ggplot(data = inclusiveness_index) +
+  geom_point(mapping = aes(x = Z.score.Religion,
+                           y = Inclusiveness.index.2020,
+                           color=Continent)) 
+
+color_scatter
+
+```
+
+## Practice Labels
+
+```{r}
+
+# To improve this plot so it is a bit more ready for publication, we're going to add
+# a layer called labs(), which allows us to edit labels on the chart like the 
+# main title, axis titles, and legend titles.
+
+# Review:
+# https://ggplot2.tidyverse.org/reference/labs.html
+
+# Update the previous chart to add/modify labels for the following chart elements 
+# and aesthetics: title, x, y, color
+
+labels <- labs(title="Comparing Religious Inclusiveness to Overall Inclusiveness, By Continent",
+           x="Z-score, Religion",
+           y="Overall Inclusiveness",
+           color="Continent",
+           alt="A colored scatterplot showing a positive but weak correlation between religious inclusiveness and overall inclusiveness.",
+           caption="Menendian, Elsheikh, & Gambhir, 2020 Inclusiveness Index: Measuring Global Inclusion and Marginality, 
+           (Berkeley, CA: Othering & Belonging Institute, 2021), https://belonging.berkeley.edu/inclusivenessindex.")
+
+color_scatter +
+  labels
+
+```
+
+## Review slides on scales
+
+## Practice Changing the Axes with Scales
+
+```{r}
+
+# Labels only get us so far. To change the text inside the chart elements like
+# the axes and the legends, we have to use layers called "scales".
+
+# Picking the right name of the scale can be tricky. There are three main
+# components of the scale name:
+# 1. the word "scale"
+# 2. the name of the aesthetic you want to modify (e.g., "x", "y", "size", "fill")
+# 3. the data type (either "discrete" or "continuous") or a specific pre-defined
+#    transformation (e.g., "log10", "reverse", "manual")
+
+# For the third element, you have to decide if you need a generic scale or a 
+# scale with a built-in transformation. First, try a transformation scale. A
+# couple of options are "log10" and "reverse". Pick one of the axes (x or y),
+# then create a scale function to try one of those transformations. If you
+# want to tranform both axes, you need to add separate scales for each.
+
+color_scatter +
+  labels +
+  scale_x_reverse() +
+  scale_y_log10()
+
+```
+
+```{r}
+
+# The generic versions of scales are a way you can replace the defaults for those
+# aesthetics without doing any transformations. First, construct a generic
+# scale for one of the axes without adding any arguments. You should see the 
+# original chart with no changes.
+
+color_scatter +
+  labels +
+  scale_x_continuous()
+
+# Now, you can use the scale to modify parts of the axis like:
+# * the start and end value of the axis - "limits"
+# * which tick marks show up - "breaks"
+# * the text that appears next to the tick marks - "labels"
+
+# Play with these options. For example, change the limits to expand or
+# contract the plot. Change the breaks so you see more or fewer tick marks.
+# For each of these options, you'll need to construct a vector of the values
+# you want to use: e.g., limits=c(-2,2)
+
+color_scatter +
+  labels +
+  scale_x_continuous(limits=c(-2,2), 
+                     breaks=seq(-2,2,by=.5),
+                     labels=c("-2","-1.5","-1","-.5","0",".5","1","1.5","2"))
+
+```
+
+## Practice Color Scales
+
+```{r}
+
+# We also use scales to change the color in charts.
+# In the above plot, we want to adjust the colors associated with the  
+# Continents. For that, we would use a scale to edit the color aesthetic,
+# which is mapped to a discrete (or categorical) variable. 
+
+# There are a lot of pre-existing color palettes that help us make good choices
+# about color in plots. One example is 'colorspace,' and you can see the available
+# palettes using:
+
+# library("colorspace")
+# hcl_palettes(plot = TRUE)
+
+# Each package has its own way of adding palettes to the chart, but most
+# follow the convention that there are different palettes for discrete
+# and continuous variables. Color space also offers three kinds of color
+# palettes: qualitative, sequential, and diverging. Discrete variables usually
+# match well with qualitative scales, though there are times when it's
+# okay to use sequential or even diverging instead.
+
+# Use hcl_palettes(plot = TRUE) to identify a palette. Then construct the scale
+# function that makes sense for the aesthetic we're using, the type of variable 
+# we have, and the type of palette you want to use.
+
+color_scatter +
+  labels +
+  scale_color_discrete_qualitative(palette = "Dark 3")
+
+```
+
+```{r}
+
+# You can also specify colors manually. Remember, though, it's easier to choose 
+# poor colors than good colors, so most of the time I'd suggest using color 
+# packages instead of choosing colors manually.
+
+# For manually specifying new colors, you can use:
+# 1. "scale"
+# 2. "color"
+# 3. "manual"
+
+# Review the scale documentation: 
+# https://ggplot2.tidyverse.org/reference/scale_manual.html
+
+# First, add the scale as a new layer, separating each part with "_".
+
+#color_scatter +
+#  labels +
+#  scale_color_manual()
+
+# This code will generate an error, since you haven't chosen any new colors yet.
+
+# For plots with a light background (e.g., white or grey), it's helpful to
+# use dark colors for chart components so they will show up well against
+# the background. We can manually select a palette of darker colors
+# for our Continent values.
+
+# To assign specific colors to each category, you can make a list of colors --
+# either R built-in color names or color specifications using the rgb() function.
+
+# To print a list of all valid color names in R, use: 
+
+#colors()
+
+# Build a list of five color names to use in the plot.
+
+continent_colors <- c("lightsalmon2", "limegreen", "violetred2", "royalblue", "purple2")
+
+# Next, inside your manual fill scale, set the "values" to
+# your new colors vector.
+
+color_scatter +
+  labels +
+  scale_color_manual(values=continent_colors)
+
+```
+
+
+```{r}
+# If you are going to use a manual color scale, it can be even better to use
+# a named list. The chart will stay true to the names and not the order of the
+# colors. This can be really handy if one of your charts is missing data from
+# one of the categories.
+
+named_colors <- continent_colors
+names(named_colors) <- levels(inclusiveness_index$Continent)
+
+filtered_color_scatter <- ggplot(data = inclusiveness_index %>% 
+                                   filter(Continent != "Africa")) +
+  geom_point(mapping = aes(x = Z.score.Religion,
+                           y = Inclusiveness.index.2020,
+                           color=Continent)) 
+
+filtered_color_scatter +
+  scale_color_manual(values=continent_colors)
+
+filtered_color_scatter +
+  scale_color_manual(values=named_colors)
+
+
+```
+
+## Practice Reference Lines
+
+```{r}
+
+# Scatterplots sometimes have bold lines dividing the chart into four quadrants.
+# In ggplot2, elements like this can be created using reference lines, which
+# are actually special geom layers.
+
+# Review: https://ggplot2.tidyverse.org/reference/geom_abline.html
+
+# Add two reference lines (one horizontal, one vertical) positioned exactly
+# at the zero values for the x and y axis.
+
+color_scatter +
+  labels +
+  scale_color_discrete_qualitative(palette = "Dark 3") +
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 0)
+
+
+```
+
+## Review slides on themes
+
+## Practice Themes
+
+```{r}
+
+# Themes govern a large amount of the default appearance of a chart.
+# Explore the built-in ggplot2 themes to see how they influence the chart
+# appearance.
+
+# https://ggplot2.tidyverse.org/reference/index.html#section-themes
+
+# Advice: theme_minimal() is a nice starting point because the gray
+# background that comes with the default theme reduces contrast between
+# the background and the foreground elements. With the small points in the
+# scatterplot, high contrast is especially important.
+
+color_scatter +
+  labels +
+  scale_color_discrete_qualitative(palette = "Dark 3") +
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 0) +
+  theme_minimal()
+
+```
+
+```{r}
+
+# We can continue to customize the theme using theme(). Let's remove the thin
+# lines that show up in between the axis tick marks - a.k.a. minor gridlines 
+# (in ggplot2 themes, panel.grid.minor).
+
+# To remove elements, set them equal to element_blank().
+
+# Review: https://ggplot2.tidyverse.org/reference/theme.html
+
+color_scatter +
+  labels +
+  scale_color_discrete_qualitative(palette = "Dark 3") +
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 0) +
+  theme_minimal() +
+  theme(panel.grid.minor = element_blank())
+
+
+```
