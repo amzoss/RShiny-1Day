@@ -4,26 +4,24 @@ font-weight: 500;
 }
 </style>
 
-# Pre-Work for Visualization for Data Science in R
+# Pre-Work for Advanced Visualization in R: R Shiny
 
-Welcome to "Visualization in Data Science using R," a two-day course on using R for visualization. 
+Welcome to "Advanced Visualization in R: R Shiny," a one-day course on using R Shiny to create R-based web applications. 
 
 ## Prerequisites
 
-This course assumes basic familiarity with R — e.g., R syntax, data structures, development environments. Participants with no knowledge of R should consider taking an introductory R short course. A significant portion of the course will use ggplot2 and other tidyverse packages to create visualizations, but prior experience with those packages is not required. 
+This course assumes basic familiarity with R—e.g., R syntax, data structures, development environments. Participants with no knowledge of R should consider taking an introductory R short course prior to this class. 
 
 ## Installations
 
 In order to participate in class exercises, participants will need a computer where you have installed current versions of [R](https://www.r-project.org/), [RStudio](https://www.rstudio.com/), and the following packages: 
 
-* tidyverse (which includes ggplot2)
+* shiny
+* tidyverse
 * markdown
 * knitr
 * readxl
 * plotly
-* maps
-* mapproj
-* sf
 * colorspace
 * dt
 * crosstalk
@@ -40,9 +38,3 @@ Having appropriate user permissions to install packages on the fly would be usef
 ## Course Logistics
 
 I will be sharing datasets and code using [GitHub](https://github.com/), but you will not have to have a GitHub account or a git installation on your laptop to participate in the course. It will be easy to download the files from the GitHub website and open them in RStudio.
-
-For this course I will be using [RMarkdown](https://rmarkdown.rstudio.com/) files* rather than simple R scripts. RMarkdown is a way of interweaving R code with other kinds of descriptive content -- text, links, images. When you only use R scripts in RStudio, the plots show up in the plot window, which only shows one plot at a time. RMarkdown allows us to create separate code "chunks" for different plots, and each plot will appear immediately below its code chunk. 
-
-If you're not familiar with RMarkdown, I will give a brief overview, but you can also [explore it on your own](https://rmarkdown.rstudio.com/lesson-1.html) in advance.
-
-*-If you're wondering what the difference is between R Markdown files and an R Notebook, these details about [R Notebooks](https://bookdown.org/yihui/rmarkdown/notebook.html) should help. Also, while [Quarto](https://quarto.org/) is gaining momentum, [R Markdown is still being supported](https://yihui.org/en/2022/04/quarto-r-markdown/) and has a mature ecosystem that hasn't quite been built out for Quarto yet.

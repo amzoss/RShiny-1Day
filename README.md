@@ -4,48 +4,40 @@ font-weight: 500;
 }
 </style>
 
-# Visualization for Data Science in R
+# Advanced Visualization in R: R Shiny
 
-This repository contains files for a two-day course on Visualization for Data Science in R, offered during [Data Matters](http://datamatters.org) in spring 2023. The course description and activities are listed below. 
+This repository contains files for a one-day course on R Shiny, offered during [Data Matters](http://datamatters.org) in the summer of 2023. The course description and activities are listed below. 
 
 See additional details on the [pre-work](PreWork) page to prepare for the course.
 
-Course exercises and slides are available from the [GitHub repository](https://github.com/amzoss/RVis-2Day).
+Course exercises and slides are available from the [GitHub repository](https://github.com/amzoss/RShiny-1Day).
 
 ## Summary
 
-This course is designed for two audiences: experienced visualization designers looking to apply open data science techniques to their work and data science professionals who have limited experience with visualization. Participants will develop skills in visualization design using R, a tool commonly used for data science. Basic familiarity with R is required.
+This course will cover the basics of creating R-based web applications with Shiny, an R package that blends data science and statistical operations with interactive interface components. Participants will learn to connect interactive inputs with R operations, develop skills in web application design, and explore different options for hosting Shiny applications on the web. Basic familiarity with R is required.
 
-## Why Take This Course
+## Why Take This Course?
 
-Data science skills are increasingly important for research and industry projects. With complex data science projects, however, come complex needs for understanding and communicating analysis processes and results. Ultimately, an analyst's data science toolbox is incomplete without visualization skills. Incorporating effective visualizations directly into the analysis tool you are using can facilitate quick data exploration, streamline your research process, and improve the reproducibility of your research.
+Modern data science projects go beyond research publications and static presentations. Stakeholders interested in the results of a data analysis workflow may need a more direct interface to explore the data themselves. Rather than preparing exhaustive reports that summarize as many different aspects of the results as possible, it may make more sense to create a way for stakeholders to interact with either the data analysis itself or the various outputs of the analysis.
 
-## What Participants Will Learn
+Shiny is a robust web application development system for R. Shiny can be used to build interactive dashboards, adjust parameters of a model, generalize a data processing workflow, and even allow users to customize the look and feel of reports and figures.
 
-The course will take a project-based approach to learning best practices for visualization for data science. Participants will be guided through several sample analysis and visualization projects that will highlight different types of visualization, different features of R and its visualization capabilities, and different challenges that arise when trying to apply an open data science philosophy to visualization.
+## What Will Participants Learn?
 
-* Introduction to visualization in R
-* Using ggplot2 for publication-ready graphics
-* Applying common graphic design principles to ggplot2 visualizations
-* Adding interactivity to visualizations through R Markdown and HTML widgets
+This course will cover the basics of building simple Shiny applications. The course will also cover the range of options for more advanced Shiny applications and the basic process for hosting and sharing a Shiny application. The following broad topics will be included:
+
+* Introduction to web applications
+* Planning for interactivity
+* Layout and UI design
+* Writing reactive R code
+* Using charts as inputs
 
 ## Prerequisite and Requirements
 
-As indicated above, this course assumes basic familiarity with R — e.g., R syntax, data structures, development environments. Participants with no knowledge of R should consider taking an introductory R short course.
+As indicated above, this course assumes basic familiarity with R—e.g., R syntax, data structures, development environments. Participants with no knowledge of R should consider taking an introductory R short course prior to this class.
 
-We will use [RStudio](https://www.rstudio.com/) to interact with R, and all exercises will be distributed in [R Markdown](https://rmarkdown.rstudio.com/) files (rather than simple R script files). This allows us to combine R code with non-code elements and promotes a [literate programming](https://en.wikipedia.org/wiki/Literate_programming) approach to research.
+We will use RStudio to interact with R. Exercise files and slides will be shared using a GitHub repository, but no prior experience using GitHub is required.
 
-A significant portion of the course will use ggplot2 and other tidyverse packages to create visualizations, but prior experience with those packages is not required. In order to participate in class exercises, participants should have installed current versions of R, RStudio, and the following packages: tidyverse, markdown, knitr, readxl, plotly, maps, mapproj, sf, colorspace, dt, crosstalk, flexdashboard, and here. Permissions to install packages on the fly will be useful.
+In order to participate in class exercises, participants should have installed current versions of R, RStudio, and the shiny package. Additional required packages will be shared before the start of the course. Permissions to install packages on the fly will be useful.
 
-## Resources
-
--   ggplot2 Resources
-
-    -   [ggplot2 Reference](http://ggplot2.tidyverse.org/reference/)
-    -   [R Graphics Cookbook](http://www.cookbook-r.com/Graphs/index.html)
-    -   [ggplot2: Elegant Graphs for Data Analysis](http://ggplot2.org/book/)
-    -   [R for Data Science book, Data Visualization chapter](http://r4ds.had.co.nz/data-visualisation.html)
-    -   [R for Data Science book, Graphics for Communication chapter](http://r4ds.had.co.nz/graphics-for-communication.html)
-    -   [ggplot2 Cheatsheet](https://www.rstudio.com/resources/cheatsheets/)
-    
 [**Additional Resources Mentioned in Class**](Resources)
