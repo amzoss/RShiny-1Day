@@ -38,3 +38,5 @@ Having appropriate user permissions to install packages on the fly would be usef
 ## Course Logistics
 
 I will be sharing datasets and code using [GitHub](https://github.com/), but you will not have to have a GitHub account or a git installation on your laptop to participate in the course. It will be easy to download the files from the GitHub website and open them in RStudio.
+
+Additionally, because this is a course where you and I will be walking through exercises together, you may find it especially helpful to have a second monitor attached to your computer, so you can have your RStudio window on one monitor and Zoom on the other. Alternatively, if you have two devices, you could use one to display the Zoom content and the other to take part in the exercises.
