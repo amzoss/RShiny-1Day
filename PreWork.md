@@ -34,6 +34,9 @@ Having appropriate user permissions to install packages on the fly would be usef
 
 (Note: Mac users without Xcode already installed may see a prompt to install Xcode or the ["command line tools"](https://mac.install.guide/commandlinetools/7.html) to compile some packages from source. You should go ahead and do that -- at least the command line tools. This is often a large installation, though, so it may take a bit of time.)
 
+## Optional: Create a shinyapps.io account
+
+If you would like to practice publishing your Shiny applications, you can create a free account at [https://www.shinyapps.io/](https://www.shinyapps.io/).
 
 ## Course Logistics
 
