@@ -10,26 +10,26 @@
 library(shiny)
 library(tidyverse)
 
-# Define UI for application that draws a histogram
+# Define UI
 ui <- fluidPage(
 
     # Application title
     titlePanel("Adding a simple plot"),
 
-    # Sidebar with a slider input for number of bins 
     sidebarLayout(
+        # Sidebar
         sidebarPanel(
           "This panel is empty for now."
         ),
 
-        # Show a plot of the generated distribution
+        # Main panel
         mainPanel(
            plotOutput("simplePlot")
         )
     )
 )
 
-# Define server logic required to draw a histogram
+# Define server logic
 server <- function(input, output) {
 
     output$simplePlot <- renderPlot({
