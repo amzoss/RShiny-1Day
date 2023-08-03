@@ -1,10 +1,5 @@
 #
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
+# Exercise 1: Basic Layout
 #
 
 # Shiny layout guide:
@@ -14,6 +9,7 @@ library(shiny)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
+  titlePanel(title="Exercise 1: Basic Layout"),
   fluidRow(column(width = 12,
                   p("This column will take up the full width of the screen."))),
   fluidRow(column(width = 4,

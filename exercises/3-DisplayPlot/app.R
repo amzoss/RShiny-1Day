@@ -1,10 +1,5 @@
 #
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
+# Exercise 3: Display a Plot 
 #
 
 library(shiny)
@@ -14,7 +9,7 @@ library(tidyverse)
 ui <- fluidPage(
 
     # Application title
-    titlePanel("Adding a simple plot"),
+    titlePanel("Exercise 3: Display a Plot"),
 
     sidebarLayout(
         # Sidebar
