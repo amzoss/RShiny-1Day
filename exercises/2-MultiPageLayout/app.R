@@ -11,11 +11,13 @@ ui <- navbarPage(
   
   tabPanel(
     title="Page 1: Sidebar",
-    sidebarPanel(
-      "This text appears in the sidebar."
-    ),
-    mainPanel(
-      "This text appears in the main panel."
+    sidebarLayout(
+      sidebarPanel(
+        "This text appears in the sidebar."
+      ),
+      mainPanel(
+        "This text appears in the main panel."
+      )
     )
   ),
   
