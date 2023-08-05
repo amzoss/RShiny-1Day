@@ -4,7 +4,7 @@
 
 library(shiny)
 
-# Define UI for application that draws a histogram
+# Define UI
 ui <- fluidPage(
 
     # Application title
@@ -13,28 +13,30 @@ ui <- fluidPage(
     # Sidebar with a select input for different images 
     sidebarLayout(
         sidebarPanel(
-            selectInput(
-              inputId = "num",
-              label = "Select a number:",
-              choices = c("1","2","3")
-            )
+          
+          # Insert an input widget that looks like a drop-down list.
+          # The drop-down should include the following options: 1, 2, and 3
+          
         ),
 
         # Show a plot of the generated distribution
         mainPanel(
-          imageOutput(outputId = "image")
+          
+          # Insert a placeholder for an image file.
+          
         )
     )
 )
 
-# Define server logic required to draw a histogram
+# Define server logic
 server <- function(input, output) {
 
-  output$image <- renderImage({
-    list(src = paste0("www/number", input$num, ".jpg"),
-         width = 150,
-         alt = paste0("The number ", input$num, "."))
-  }, deleteFile = FALSE)
+  # Write the R code that will render an image based on what
+  # the user selects in the drop-down input.
+  
+  # One important thing to note is that the path to the images
+  # should contain the "www" directory. This is different from what
+  # is required when we use the img() function.
   
 }
 

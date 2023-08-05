@@ -4,65 +4,29 @@
 
 library(shiny)
 
-# Define UI for application that draws a histogram
-ui <- navbarPage(
+# Define UI
+ui <- 
+  # Start with a page that creates a navigation bar at the top. We will
+  # add a different page, or tab, for several different kinds of layouts.
+  # Make sure to specify the title of the page.
   
-  title = "Exercise 2: Multi-Page Layout",
+  # Create four pages, based on the instructions below. In the different
+  # sections of the pages, you can include any static content you like --
+  # plain text or HTML tags.
   
-  tabPanel(
-    title="Page 1: Sidebar",
-    sidebarLayout(
-      sidebarPanel(
-        "This text appears in the sidebar."
-      ),
-      mainPanel(
-        "This text appears in the main panel."
-      )
-    )
-  ),
+  # For page 1, test a sidebar layout.
   
-  tabPanel(
-    title="Page 2: Tabset",
-    tabsetPanel(
-      tabPanel(
-        title="This is the first tab in the tabset panel.",
-        "This is content for the first tab in the tabset panel."
-      ),
-      tabPanel(
-        title="This is the second tab in the tabset panel.",
-        "This is content for the second tab in the tabset panel."
-      )
-    )
-  ),
+  # For page 2, test a tabset panel.
   
-  tabPanel(
-    title="Page 3: Navlist",
-    navlistPanel(
-      tabPanel(
-        title="This is the first tab in the navlist panel.",
-        "This is content for the first tab in the navlist panel."
-      ),
-      tabPanel(
-        title="This is the second tab in the navlist panel.",
-        "This is content for the second tab in the navlist panel."
-      )
-    )
-  ),
+  # For page 3, test a navigation list panel.
   
-  tabPanel(
-    title="Page 4: Additional Panels",
-    titlePanel("This is a title panel. It should be used as the main heading of the page."),
-    absolutePanel("This is an absolute panel. The position is specified absolutely.", left="500px", top="200px"),
-    conditionalPanel(TRUE,"This is a conditional panel. You could have it appear based on a condition."),
-    fixedPanel("This is a fixed panel. It is like an absolute panel but doesn't scroll.", left="500px", top="400px"),
-    flowLayout(inputPanel("This is an input panel. It is meant to be included in a flowLayout().")),
-    wellPanel("This is a well panel. It has a grey background.")
-  )
-  
-)
+  # For page 4, test anything else you'd like to test, based on what you see
+  # in the cheat sheet.
 
-# Define server logic required to draw a histogram
+# Define server logic
 server <- function(input, output) {
+  
+  # We can ignore this for now.
   
 }
 

@@ -5,69 +5,51 @@
 library(shiny)
 library(tidyverse)
 
-# Define UI for application that draws a histogram
+# Define UI
 ui <- navbarPage(
   
   title = "Exercise 4: Testing Different Outputs",
 
-  tabPanel(
-    title="Output 1: Image", 
-    "The placeholder below will display an image based on the R code in the server.",
-    imageOutput(outputId = "image")
-    ),
-
-  tabPanel(
-    title="Output 2: Table", 
-    "The placeholder below will display a table of the 'mtcars' dataset based on the R code in the server.",
-    tableOutput(outputId = "table")
-  ),
-
-  tabPanel(
-    "The placeholder below will display the output of the R code in the server, without making it look pretty.",
-    title="Output 3: Print", 
-    verbatimTextOutput(outputId = "print")
-  ),
-
-  tabPanel(
-    title="Output 4: Text", 
-    "The placeholder below will display the output of the R code in the server, after pasting it together into a single string. It won't work for very complicated output like an entire data frame.",
-    textOutput(outputId = "text")
-  ),
+  # Add separate pages for different outputs; include a title for each page
   
-  tabPanel(
-    title="Output 5: HTML", 
-    htmlOutput(outputId = "html")
-  )
+  # Page 1: image output
+  
+  # Page 2: table output
+  
+  # Page 3: verbatim text output
+  
+  # Page 4: text output
+  
+  # Page 5: html output
   
 )
 
-# Define server logic required to draw a histogram
+# Define server logic
 server <- function(input, output) {
+  
+  # Add render code for the different outputs expected by the different pages
+  
+  # Page 1: render image
+  # (Use one of the images in the "www" folder, like "www/number1.jpg".)
+  
+  # Page 2: render table
+  # (You can use a built-in dataset, like "mtcars".)
+  
+  # Page 3: render print
+  # (You can just call the name of the dataset, since that will generate output
+  # that can be printed.)
+  
+  # Page 4: render text
+  # (Instead of calling a whole dataset, you need to call something that can 
+  # easily be converted into text, like a vector. You can use "names(mtcars)" here.)
+  
+  # Page 5: render UI
+  # (To render HTML elements for the UI, you can use HTML functions imported into 
+  # the shiny package. See a list by typing "?shiny::reexports". Some examples are:
+  # p() for paragraph, h1() and h2() for headings, img() for an image. If you want to
+  # use more than of these HTML functions, you need to list them inside the function
+  # tagList().)
 
-    output$image <- renderImage({
-      list(src = "www/number1.jpg",
-           width = 150,
-           alt = "The number one.")
-    }, deleteFile = FALSE)
-    
-    output$table <- renderTable({
-      mtcars
-    }, rownames=TRUE, striped=TRUE)
-    
-    output$print <- renderPrint({
-      mtcars
-    })
-    
-    output$text <- renderText({
-      names(mtcars)
-    })
-    
-    output$html <- renderUI({
-      tagList(
-        h2("A second level heading"),
-        p("Testing out using some", strong("formatting"), "inside a paragraph.")
-      )
-    })
 }
 
 # Run the application 

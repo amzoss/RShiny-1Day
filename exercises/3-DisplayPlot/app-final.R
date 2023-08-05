@@ -16,10 +16,10 @@ ui <- fluidPage(
       sidebarPanel(
         p("This panel is empty for now.")
       ),
-      
+
       # Main panel
       mainPanel(
-        # Fill this out to add a placeholder for the plot
+         plotOutput("simplePlot")
       )
     )
 )
@@ -27,11 +27,9 @@ ui <- fluidPage(
 # Define server logic
 server <- function(input, output) {
 
-  # Fill this out to define the plot
-  
-  # We can use a built-in dataset, like mtcars.
-  # Try using ggplot2 to create a scatterplot with the variables mpg and disp.
-    
+    output$simplePlot <- renderPlot({
+      ggplot(mtcars, aes(x=mpg, y=disp)) + geom_point()
+    })
 }
 
 # Run the application 
