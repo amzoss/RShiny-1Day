@@ -33,6 +33,12 @@ install.packages(c("shiny", "tidyverse", "markdown", "knitr", "readxl", "plotly"
 "colorspace", "DT", "crosstalk", "flexdashboard", "here"))
 ```
 
+Additional **optional** packages include: leaflet, sf, maps, mapproj, networkD3, formattable, upsetjs
+
+```
+install.packages(c("leaflet", "sf", "maps", "mapproj", "networkD3", "formattable", "upsetjs"))
+```
+
 Note: this helpful guide to [Installing Packages in RStudio](http://derekogle.com/IFAR/supplements/installations/InstallPackagesRStudio.html) describes the process for installing packages once you have installed R and RStudio. Just copy each of the package names listed above into the install packages dialog box, either one at a time or in a long list.
 
 Having appropriate user permissions to install packages on the fly would be useful. 
