@@ -32,7 +32,7 @@ server <- function(input, output) {
 
   output$image <- renderImage({
     list(src = paste0("www/number", input$num, ".jpg"),
-         width = 150,
+         width = '150px',
          alt = paste0("The number ", input$num, "."))
   }, deleteFile = FALSE)
   

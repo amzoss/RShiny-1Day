@@ -19,7 +19,7 @@ ui <- fluidPage(
 
       # Main panel
       mainPanel(
-         plotOutput("simplePlot")
+         plotOutput(outputId = "simplePlot")
       )
     )
 )

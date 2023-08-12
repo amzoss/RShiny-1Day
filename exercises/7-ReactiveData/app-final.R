@@ -24,8 +24,8 @@ ui <- fluidPage(
 
         # Show a plot of the generated distribution
         mainPanel(
-           plotOutput("filteredPlot"),
-           tableOutput("filteredTable")
+           plotOutput(outputId = "filteredPlot"),
+           tableOutput(outputId = "filteredTable")
         )
     )
 )
